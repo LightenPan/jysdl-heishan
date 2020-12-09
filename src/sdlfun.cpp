@@ -343,7 +343,7 @@ int JY_ShowSurface(int flag)
     else
     {
 		// µ»±»Àı∑≈
-		SDL_RenderCopy(g_Renderer, g_Texture, NULL, &rectOutput);
+		SDL_RenderCopy(g_Renderer, g_Texture, NULL, NULL);
     }
 
     SDL_SetRenderTarget(g_Renderer, NULL);
