@@ -316,7 +316,19 @@ int JY_LoadPicture(const char* str, int x, int y)
 //flag = 0 显示全部表面  =1 按照JY_SetClip设置的矩形显示，如果没有矩形，则不显示
 int JY_ShowSurface(int flag)
 {
-    SDL_SetRenderTarget(g_Renderer, g_TextureShow);
+	SDL_SetRenderTarget(g_Renderer, g_TextureShow);
+
+	// 等比缩放，获取尺寸
+	int wWin = 0;
+	int hWin = 0;
+	SDL_GetWindowSize(g_Window, &wWin, &hWin);
+
+	SDL_Rect rectOutput;
+	rectOutput.h = hWin;
+	rectOutput.w = hWin * ((double)g_ScreenW / g_ScreenH);
+	rectOutput.x = (wWin - rectOutput.w) / 2;
+	rectOutput.y = 0;
+
     if (flag == 1)
     {
         if (currentRect > 0)
@@ -330,19 +342,23 @@ int JY_ShowSurface(int flag)
     }
     else
     {
-        SDL_RenderCopy(g_Renderer, g_Texture, NULL, NULL);
+		// 等比缩放
+		SDL_RenderCopy(g_Renderer, g_Texture, NULL, &rectOutput);
     }
+
     SDL_SetRenderTarget(g_Renderer, NULL);
     //SDL_Rect r;
     //SDL_RenderGetClipRect(g_Renderer, &r);
     SDL_RenderSetClipRect(g_Renderer, NULL);
     if (g_Rotate == 0)
     {
-        SDL_RenderCopy(g_Renderer, g_TextureShow, NULL, NULL);
+		// 等比缩放
+		SDL_RenderCopy(g_Renderer, g_TextureShow, NULL, &rectOutput);
     }
     else
     {
-        SDL_RenderCopyEx(g_Renderer, g_TextureShow, NULL, NULL, 90, NULL, SDL_FLIP_NONE);
+		// 等比缩放
+		SDL_RenderCopyEx(g_Renderer, g_TextureShow, NULL, &rectOutput, 90, NULL, SDL_FLIP_NONE);
     }
     SDL_RenderPresent(g_Renderer);
     //SDL_RenderSetClipRect(g_Renderer, &r);

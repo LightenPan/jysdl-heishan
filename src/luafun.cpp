@@ -23,6 +23,7 @@ int HAPI_DrawStr(lua_State* pL)
     int charset = (int)lua_tonumber(pL, 7);
     int OScharset = (int)lua_tonumber(pL, 8);
 
+	
     JY_DrawStr(x, y, str, color, size, fontname, charset, OScharset);
 
     return 0;

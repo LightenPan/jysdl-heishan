@@ -209,6 +209,8 @@ int JY_LoadPic(int fileid, int picid, int x, int y, int flag, int value, int col
 
     if (fileid < 0 || fileid >= PIC_FILE_NUM || picid < 0 || picid >= pic_file[fileid].num)    // 参数错误
     {
+		JY_Debug("fileid or picid error. fileid: %u, maxFileId: %u, picid: %u, maxPicId: %u",
+			fileid, PIC_FILE_NUM, picid, pic_file[fileid].num);
         return 1;
     }
 
@@ -259,6 +261,7 @@ int JY_LoadPic(int fileid, int picid, int x, int y, int flag, int value, int col
 
     if (newcache->t == NULL)     //贴图为空，直接退出
     {
+		JY_Debug("newcache is null.");
         return 1;
     }
 
