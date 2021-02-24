@@ -244,7 +244,7 @@ int JY_DrawStr(int x, int y, const char* str, int color, int size, const char* f
             {
                 out[1] = *(str + pi + 1);
             }
-            JY_Debug("cache [%d][%s(%d)], total %d", size, out, *p, char_count);
+            // JY_Debug("cache [%d][%s(%d)], total %d", size, out, *p, char_count);
 #endif
         }
 #ifdef _DEBUG

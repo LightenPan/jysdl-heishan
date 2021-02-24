@@ -874,7 +874,7 @@ int JY_SaveSur(int x, int y, int w, int h)
             }
         }
     }
-    JY_Debug("total temp surface: %d, real: %d", tmp_Surface_count, tmp_Surface.size());
+    // JY_Debug("total temp surface: %d, real: %d", tmp_Surface_count, tmp_Surface.size());
     return id;
 }
 

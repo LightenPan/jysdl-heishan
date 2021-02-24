@@ -261,7 +261,7 @@ int JY_LoadPic(int fileid, int picid, int x, int y, int flag, int value, int col
 
     if (newcache->t == NULL)     //贴图为空，直接退出
     {
-		JY_Debug("newcache is null.");
+		// JY_Debug("newcache is null.");
         return 1;
     }
 

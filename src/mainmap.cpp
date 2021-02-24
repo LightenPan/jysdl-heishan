@@ -778,7 +778,7 @@ int JY_GetS(int id, int x, int y, int level)
     int s;
     if (id < 0 || id >= S_Num || x < 0 || x >= S_XMax || y < 0 || y >= S_YMax || level < 0 || level >= 6)
     {
-        JY_Error("GetS error: data out of range! id=%d,x=%d,y=%d,level=%d\n", id, x, y, level);
+        // JY_Error("GetS error: data out of range! id=%d,x=%d,y=%d,level=%d\n", id, x, y, level);
         return 0;
     }
     if (g_LoadFullS == 0)
@@ -807,7 +807,7 @@ int JY_SetS(int id, int x, int y, int level, int v)
     short value = (short)v;
     if (id < 0 || id >= S_Num || x < 0 || x >= S_XMax || y < 0 || y >= S_YMax || level < 0 || level >= 6)
     {
-        JY_Error("GetS error: data out of range! id=%d,x=%d,y=%d,level=%d\n", id, x, y, level);
+        JY_Error("SetS error: data out of range! id=%d,x=%d,y=%d,level=%d\n", id, x, y, level);
         return 0;
     }
 
@@ -1062,7 +1062,7 @@ int JY_GetWarMap(int x, int y, int level)
     int s;
     if (x < 0 || x >= War_XMax || y < 0 || y >= War_YMax || level < 0 || level >= 8)
     {
-        JY_Error("GetWarMap error: data out of range! x=%d,y=%d,level=%d\n", x, y, level);
+        // JY_Error("GetWarMap error: data out of range! x=%d,y=%d,level=%d\n", x, y, level);
         return 0;
     }
     s = War_XMax * War_YMax * level + y * War_XMax + x;
